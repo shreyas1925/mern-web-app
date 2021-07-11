@@ -100,6 +100,9 @@ router.post("/contact", authenticate, async (req, res) => {
     console.log(error);
   }
 });
+
+
+
 router.get("/logout", (req, res) => {
   console.log("Hello Logout Page");
   res.clearCookie("jwttoken", { path: "/" });
