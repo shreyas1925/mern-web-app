@@ -1,4 +1,4 @@
-import React, { createContext,useReducer} from "react";
+import React, { createContext, useReducer } from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "./Components/Home";
 import About from "./Components/About";
@@ -8,51 +8,48 @@ import Signup from "./Components/SignUp";
 import Logout from "./Components/Logout";
 import Error from "./Components/Error";
 import NavBar from "./Components/NavBar";
-import { initialState,reducer } from "./reducers/UserReducer";
+import { initialState, reducer } from "./reducers/UserReducer";
 
 export const UserContext = createContext();
 
 const App = () => {
-
-const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <>
-    <UserContext.Provider value={{state,dispatch}}>
-      <NavBar/>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route  path="/about">
-          <About />
-        </Route>
+      <UserContext.Provider value={{ state, dispatch }}>
+        <NavBar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
 
-        <Route  path="/login">
-       
-          <Login />
-        </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
 
-        <Route  path="/contact">
-          <Contact />
-        </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
 
-        <Route  path="/signup">
-          <Signup />
-        </Route>
+          <Route path="/signup">
+            <Signup />
+          </Route>
 
-        <Route  path="/logout">
-          <Logout />
-        </Route>
+          <Route path="/logout">
+            <Logout />
+          </Route>
 
-        <Route>
-          <Error />
-        </Route>
-      </Switch>
+          <Route>
+            <Error />
+          </Route>
+        </Switch>
       </UserContext.Provider>
     </>
   );
 };
 
 export default App;
-
